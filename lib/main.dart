@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 import 'friends_list.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-void main() => runApp(ChatApp());
+void main() {
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.black,
+      systemNavigationBarIconBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.dark,
+    ),
+  );
+   runApp(ChatApp());
+
+}
 
 class ChatApp extends StatelessWidget {
 
@@ -10,12 +25,12 @@ class ChatApp extends StatelessWidget {
 
     return MaterialApp(
 
+      debugShowCheckedModeBanner: false,
       title: 'Chat App',
       theme: ThemeData(
 
         //backgroundColor: Color(0xffF26060),
-        primarySwatch:  Colors.pink,
-        accentColor: Colors.amber,
+        primaryColor: Colors.pink,
         errorColor: Colors.red,
         fontFamily: 'CustomIcons',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -46,6 +61,7 @@ class ChatApp extends StatelessWidget {
 
       ),
       home: MyChatApp(),
+
     );
   }
 }
@@ -64,16 +80,22 @@ class _MyChatAppState extends State<MyChatApp> {
 
     return Scaffold(
 
-      //backgroundColor: Theme.of(context).backgroundColor,
-      // appBar: AppBar(
+    appBar: AppBar(
+      elevation: 2,
+      brightness: Brightness.light,
+      title: SvgPicture.asset(
 
-      //   title: Text('Chat amica', style: TextStyle(color: Colors.black),),
-      //   backgroundColor: Color(0xffF26060),
+            'assets/images/amica_inverted.svg',
+            height: kToolbarHeight - 25,
 
-      // ),
+      ),
 
-      body:
-          FriendsList(),
+      backgroundColor: Colors.white,
+
+    ),
+
+    body:
+        FriendsList(),
 
     );
 
