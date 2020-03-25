@@ -57,8 +57,6 @@ class FriendsList extends StatelessWidget {
                   overflow: TextOverflow.ellipsis
 
                 ),
-
-
                 trailing: Container(
 
                     margin: EdgeInsets.only(top: 15),
@@ -71,8 +69,6 @@ class FriendsList extends StatelessWidget {
                         //borderRadius: BorderRadius.circular(15)
 
                     ),
-
-                    
 
                     child: FittedBox(
 
