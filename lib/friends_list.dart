@@ -11,49 +11,85 @@ class FriendsList extends StatelessWidget {
 
       itemBuilder: (context, index) {
 
-        return Card(
+        return
 
-          elevation: 5,
-           shape: RoundedRectangleBorder(
+          //elevation: 5,
+          //  shape: RoundedRectangleBorder(
 
-              borderRadius: BorderRadius.circular(15.0),
+          //     borderRadius: BorderRadius.circular(15.0),
 
-            ),
+          //   ),
 
 
-          child: ListTile(
+          Column(
 
-            leading: ClipRRect(
+            children: <Widget>[
+              ListTile(
 
-              child: Image.asset(
+                leading: Container(
 
-                dummyFriends[index]['pic'],
-                height: 50,
-                width: 40,
+                  height: 50,
+                  width: 50,
+
+                  decoration: new BoxDecoration(
+
+                    shape: BoxShape.circle,
+
+                    image: DecorationImage(
+
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+
+                        dummyFriends[index]['pic'],
+
+                      )
+
+                    )
+
+                  ),
+
+                ),
+
+                title: Text(dummyFriends[index]['name']),
+                subtitle: Text(
+
+                  dummyFriends[index]['chat'],
+                  overflow: TextOverflow.ellipsis
+
+                ),
+
+
+                trailing: Container(
+
+                    margin: EdgeInsets.only(top: 15),
+                    height: 15,
+                    width: 15,
+                    decoration: BoxDecoration(
+
+                        color: Color(0xffF26060),
+                        shape: BoxShape.circle,
+                        //borderRadius: BorderRadius.circular(15)
+
+                    ),
+
+                    
+
+                    child: FittedBox(
+
+                      child: Text('2', style: TextStyle(color: Colors.white, fontSize: 40),)
+
+                    ),
+
+
+                  ),
 
               ),
 
+              Divider(),
 
-              borderRadius: BorderRadius.circular(30),
+            ],
 
-            ),
-
-            title: Text(dummyFriends[index]['name']),
-            subtitle: Text(
-
-              dummyFriends[index]['chat'],
-              overflow: TextOverflow.ellipsis
-
-            ),
-
-
-            trailing: Icon(Icons.camera),
-
-          ),
-
-
-
-        );
+          );
 
       },
 
