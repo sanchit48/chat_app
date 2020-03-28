@@ -1,3 +1,4 @@
+import 'package:chat_app/main_chat.dart';
 import 'package:flutter/material.dart';
 import 'friends_list.dart';
 import 'package:flutter/services.dart';
@@ -29,9 +30,8 @@ class ChatApp extends StatelessWidget {
       title: 'Chat App',
       theme: ThemeData(
 
-        //backgroundColor: Color(0xffF26060),
-        primaryColor: Colors.pink,
-        errorColor: Colors.red,
+        primaryColor: Color(0xffF26060),
+        accentColor: Color(0xffF0F8FF),
         fontFamily: 'CustomIcons',
         textTheme: ThemeData.light().textTheme.copyWith(
 
@@ -61,6 +61,12 @@ class ChatApp extends StatelessWidget {
 
       ),
       home: MyChatApp(),
+
+      routes: {
+
+        MainChat.routeName: (ctx) => MainChat(),
+
+      },
 
     );
   }
