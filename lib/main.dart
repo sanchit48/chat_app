@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
-
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -15,96 +14,62 @@ void main() {
       statusBarBrightness: Brightness.dark,
     ),
   );
-   runApp(ChatApp());
-
+  runApp(ChatApp());
 }
 
 class ChatApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       title: 'Chat App',
       theme: ThemeData(
-
-        primaryColor: Color(0xffF26060),
-        accentColor: Color(0xffF0F8FF),
-        fontFamily: 'CustomIcons',
-        textTheme: ThemeData.light().textTheme.copyWith(
-
-          title: TextStyle(
-
-            fontFamily: 'CustomIcons',
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-
-          ),
-
-          button: TextStyle(color: Colors.white)
-
-        ),
-
-        appBarTheme: AppBarTheme(
-
-          textTheme: ThemeData.light().textTheme.copyWith(title: TextStyle(
-
-            fontFamily: 'CustomIcons',
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-
-            ),
-          ),
-        )
-
-      ),
+          primaryColor: Color(0xffF26060),
+          accentColor: Color(0xffF0F8FF),
+          fontFamily: 'CustomIcons',
+          textTheme: ThemeData.light().textTheme.copyWith(
+              title: TextStyle(
+                fontFamily: 'CustomIcons',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              button: TextStyle(color: Colors.white)),
+          appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                  title: TextStyle(
+                    fontFamily: 'CustomIcons',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+          )),
       home: MyChatApp(),
-
       routes: {
-
         MainChat.routeName: (ctx) => MainChat(),
-
       },
-
     );
   }
 }
 
 class MyChatApp extends StatefulWidget {
-
   @override
   _MyChatAppState createState() => _MyChatAppState();
-
 }
 
 class _MyChatAppState extends State<MyChatApp> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
-    appBar: AppBar(
-      elevation: 2,
-      brightness: Brightness.light,
-      title: SvgPicture.asset(
-
-            'assets/images/amica_inverted.svg',
-            height: kToolbarHeight - 25,
-
+      appBar: AppBar(
+        elevation: 2,
+        brightness: Brightness.light,
+        title: SvgPicture.asset(
+          'assets/images/amica_inverted.svg',
+          height: kToolbarHeight - 25,
+        ),
+        backgroundColor: Colors.white,
       ),
-
-      backgroundColor: Colors.white,
-
-    ),
-
-    body:
-        FriendsList(),
-
+      body: FriendsList(),
     );
-
   }
-
 }
